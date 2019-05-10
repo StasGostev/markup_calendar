@@ -1,0 +1,37 @@
+$size: 100px;
+$weekDays: (
+  mon: 1,
+  tue: 2,
+  wed: 3,
+  thu: 4,
+  fri: 5,
+  sat: 6,
+  sun: 7
+);
+
+@mixin cellStyle($size) {
+  display: flex;
+  justify-content: center;
+  width: $size;
+  height: $size;
+  font-size: 30px;
+  line-height: $size;
+  background: #eeeeee;
+  border: 1px solid black;
+}
+
+@mixin hoverCell() {
+  cursor: pointer;
+  background-color: pink;
+  animation: riseUp 0.5s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes riseUp {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, -20px);
+  }
+}

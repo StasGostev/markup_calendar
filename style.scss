@@ -1,0 +1,46 @@
+@import "sources";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.calendar {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(7, $size);
+  align-content: center;
+  justify-content: center;
+  > div {
+    @include cellStyle($size);
+  }
+}
+
+.calendar > div:hover {
+  @include hoverCell();
+}
+
+@for $i from 1 through 31 {
+  @if $i >= 28 {
+    $rest: $i + 1;
+    div.calendar-#{$i} div:nth-child(n + #{$rest}) {
+      display: none;
+    }
+  }
+  .calendar > div:nth-child(#{$i})::after {
+    content: "#{$i}";
+  }
+}
+
+@each $i, $j in $weekDays {
+  div.calendar-#{$i} div:first-child {
+    grid-column-start: #{$j};
+  }
+}
