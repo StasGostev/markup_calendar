@@ -18,20 +18,11 @@ $weekDays: (
   line-height: $size;
   background: #eeeeee;
   border: 1px solid black;
+  transition: 0.5s; 
 }
 
 @mixin hoverCell() {
   cursor: pointer;
   background-color: pink;
-  animation: riseUp 0.5s linear;
-  animation-fill-mode: forwards;
-}
-
-@keyframes riseUp {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(0, -20px);
-  }
+  transform: translateY(-20px);
 }

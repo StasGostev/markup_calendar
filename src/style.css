@@ -1,11 +1,3 @@
-@keyframes riseUp {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(0, -20px);
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +26,13 @@ body {
   line-height: 100px;
   background: #eeeeee;
   border: 1px solid black;
+  transition: 0.5s;
 }
 
 .calendar > div:hover {
   cursor: pointer;
   background-color: pink;
-  animation: riseUp 0.5s linear;
-  animation-fill-mode: forwards;
+  transform: translateY(-20px);
 }
 
 .calendar > div:nth-child(1)::after {
